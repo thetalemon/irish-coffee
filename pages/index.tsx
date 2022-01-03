@@ -1,6 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { css } from "@emotion/react";
+
+import { Login, Logout, auth } from "../lib/firebase";
+
 const title = css`
   color: hotpink;
   text-align: center;
@@ -34,7 +37,15 @@ const Home: NextPage = () => {
         </h1>
 
         <div>
-          ここにコンテンツ
+          <button onClick={() => Login()}>ログイン</button>
+          <button onClick={() => Logout()}>ログアウト</button>
+        </div>
+        <div>
+          <pre>
+            {auth.currentUser
+              ? auth.currentUser.displayName + "でログインしています"
+              : "ログインしていません"}
+          </pre>
         </div>
       </main>
 
