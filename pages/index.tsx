@@ -1,12 +1,17 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { css } from "@emotion/react";
+import Image from 'next/image'
 
 import { Login, Logout, auth } from "../lib/firebase";
 
 const footer = css`
   text-align: center;
   margin-top: 32px;
+  a {
+    display: inline-block;
+    margin-bottom: 4px;
+  }
 `
 
 const main = css`
@@ -49,14 +54,18 @@ const Home: NextPage = () => {
         <div>
           {
             auth.currentUser
-              ? (<button css={ loginButton } onClick={() => Login()}>ログイン</button>)
-              : (<button css={ loginButton } onClick={() => Logout()}>ログアウト</button>)
+              ? (<button css={ loginButton } onClick={() => Logout()}>ログアウト</button>)
+              : (<button css={ loginButton } onClick={() => Login()}>ログイン</button>)
           }
         </div>
       </header>
 
-      <main css={ main }>
-
+      <main css={main}>
+        <div>
+          <Image src="/sora.png" alt="me" width="1067" height="800" />
+        </div>
+        なまえ: <input/><br/>
+        好きなたべもの: <input/><br/>
         <div>
           <pre>
             {
@@ -75,7 +84,8 @@ const Home: NextPage = () => {
           rel="noopener noreferrer"
         >
           ©︎ manasas
-        </a>
+        </a><br />
+        素材:<a href="https://hiyokoyarou.com/">ぴよたそ</a>様
       </footer>
     </div>
   )
