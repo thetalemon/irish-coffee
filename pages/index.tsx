@@ -6,20 +6,34 @@ import Image from 'next/image'
 import { Login, Logout, auth } from "../lib/firebase";
 
 const footer = css`
+  background: #89643f;
+  color: #fff;
   text-align: center;
   margin-top: 32px;
+  padding: 4px 0;
   a {
     display: inline-block;
     margin-bottom: 4px;
   }
+  fixed: bottom;
 `
 
 const main = css`
   margin: 8px;
+  flex: 1;
+
+`
+
+const multiple = css`
+  margin: 0 4px;
+`
+
+const titleIcon = css`
+  margin-right: 8px;
 `
 
 const menuBar = css`
-  background: #7c5631;
+  background: #89643f;
   color: #fff;
   padding: 8px;
   display: flex;
@@ -41,16 +55,29 @@ const loginButton = css`
   padding: 4px 8px;
 `
 
+const top = css`
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+`
+
 const Home: NextPage = () => {
   return (
-    <div>
+    <div css={ top }>
       <Head>
-        <title>プロフィール帳的なもの</title>
-        <meta name="description" content="プロフィール帳的なもの" />
+        <title>あいりこ【アイリッシュコーヒー口コミサイト】</title>
+        <meta name="description" content="アイリッシュコーヒー口コミサイト: あいりこ" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header css={ menuBar }>
-        <h1>ぴよふぃーる帳</h1>
+        <h1>
+          <span css={ titleIcon }>
+            <Image src="/whisky.png" alt="me" width="20" height="20" />
+            <span css={ multiple }>×</span>        
+            <Image src="/coffee.png" alt="me" width="20" height="20" />
+          </span>
+          <span>あいりこ</span>
+        </h1>
         <div>
           {
             auth.currentUser
@@ -61,11 +88,8 @@ const Home: NextPage = () => {
       </header>
 
       <main css={main}>
-        <div>
-          <Image src="/sora.png" alt="me" width="1067" height="800" />
-        </div>
-        なまえ: <input/><br/>
-        好きなたべもの: <input/><br/>
+        ここに画像と店名で一覧を出す
+        {/* 
         <div>
           <pre>
             {
@@ -74,7 +98,7 @@ const Home: NextPage = () => {
               : "ログインしていません"
             }
           </pre>
-        </div>
+        </div> */}
       </main>
 
       <footer css={ footer }>
@@ -84,8 +108,7 @@ const Home: NextPage = () => {
           rel="noopener noreferrer"
         >
           ©︎ manasas
-        </a><br />
-        素材:<a href="https://hiyokoyarou.com/">ぴよたそ</a>様
+        </a>
       </footer>
     </div>
   )
