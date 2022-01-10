@@ -61,6 +61,20 @@ const top = css`
   min-height: 100vh;
 `
 
+const cardList = css`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+`
+
+const card = css`
+  padding: 4px;
+  text-align: center;
+`
+
+const image = css`
+  border-radius: 30px;
+`
+
 const Home: NextPage = () => {
   return (
     <div css={ top }>
@@ -72,9 +86,9 @@ const Home: NextPage = () => {
       <header css={ menuBar }>
         <h1>
           <span css={ titleIcon }>
-            <Image src="/whisky.png" alt="me" width="20" height="20" />
+            <Image src="/whisky.png" alt="ウイスキー" width="20" height="20" />
             <span css={ multiple }>×</span>        
-            <Image src="/coffee.png" alt="me" width="20" height="20" />
+            <Image src="/coffee.png" alt="豆" width="20" height="20" />
           </span>
           <span>あいりこ</span>
         </h1>
@@ -89,6 +103,24 @@ const Home: NextPage = () => {
 
       <main css={main}>
         ここに画像と店名で一覧を出す
+        <ul css={cardList}>
+          <li css={card}>
+            <Image css={image} src="/1.jpeg" alt="おみせ1" width="120" height="120" />
+            <h2>おみせ1</h2>
+            <p>東京都</p>
+          </li>
+          <li css={card}>
+            <Image css={image} src="/2.jpeg" alt="おみせ2" width="120" height="120" />
+            <h2>おみせ2</h2>
+            <p>東京都</p>
+          </li>
+          <li css={card}>
+            <Image css={image} src="/3.jpeg" alt="おみせ3" width="120" height="120" />
+            <h2>おみせ3</h2>
+            <p>東京都</p>
+          </li>
+        </ul>
+
         {/* 
         <div>
           <pre>
