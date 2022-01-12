@@ -3,8 +3,8 @@ import Head from 'next/head'
 import { css } from "@emotion/react";
 import Header from '../components/header'
 import Footer from '../components/footer'
-import MainList from '../components/itemList/list'
-import { ContentList } from '../types/contents'
+import Image from 'next/image'
+import { Content } from '../types/contents'
 
 const main = css`
   margin: 8px;
@@ -17,26 +17,17 @@ const top = css`
   min-height: 100vh;
 `
 
-const contentList: ContentList = [
+const image = css`
+  /* border-radius: 30px; */
+`
+
+const content: Content = 
   {
     id: "1",
     shopName: "おみせ1",
     pref: "東京都",
     imgSrc: "/1.jpeg",
-  },
-  {
-    id: "2",
-    shopName: "おみせ",
-    pref: "北海道",
-    imgSrc: "/2.jpeg",
-  },
-  {
-    id: "3",
-    shopName: "おみせ3",
-    pref: "大阪府",
-    imgSrc: "/3.jpeg",
-  },
-]
+  }
 
 const Home: NextPage = () => {
   return (
@@ -49,7 +40,11 @@ const Home: NextPage = () => {
       <Header />
 
       <main css={main}>
-        <MainList contentList={contentList} />
+        <h1>{content.shopName}({content.pref})</h1>
+        <Image css={image} src={content.imgSrc} alt={content.shopName} width="300" height="200" objectFit="contain" />
+
+        
+        {/* <MainList contentList={contentList} /> */}
       </main>
 
       <Footer />

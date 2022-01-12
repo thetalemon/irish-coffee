@@ -17,27 +17,6 @@ const top = css`
   min-height: 100vh;
 `
 
-const contentList: ContentList = [
-  {
-    id: "1",
-    shopName: "おみせ1",
-    pref: "東京都",
-    imgSrc: "/1.jpeg",
-  },
-  {
-    id: "2",
-    shopName: "おみせ",
-    pref: "北海道",
-    imgSrc: "/2.jpeg",
-  },
-  {
-    id: "3",
-    shopName: "おみせ3",
-    pref: "大阪府",
-    imgSrc: "/3.jpeg",
-  },
-]
-
 const Home: NextPage = () => {
   return (
     <div css={ top }>
@@ -49,7 +28,9 @@ const Home: NextPage = () => {
       <Header />
 
       <main css={main}>
-        <MainList contentList={contentList} />
+        お店の名前: <input/><br/>
+        所在する都道府県: <input/><br/>
+        <input type="file"/>
       </main>
 
       <Footer />
